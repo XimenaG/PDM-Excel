@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MatrizCostos extends Matriz {
     public MatrizCostos() {
+        super();
     }
 
     public MatrizCostos(DefaultTableModel modelo) {

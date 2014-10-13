@@ -2,24 +2,22 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package vista;
+
 import control.Control;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author cristhian
  */
 public class PanelMDI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PanelMDI
-     */
     Control control;
-    DefaultTableModel modelo;
+
     public PanelMDI() {
         initComponents();
         jInternalFrameMatrizTransicion.dispose();
@@ -403,26 +401,26 @@ public class PanelMDI extends javax.swing.JFrame {
 
     private void AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirActionPerformed
         try {
-            control.CargarMatrizTransicion(this.jInternalFrameMatrizTransicion,this.jTablaTransicion,
-                    this.jInternalFrameMatrizCosto,this.jTablaCosto);
+            control.AbrirArchivo(this.jInternalFrameMatrizTransicion, this.jTablaTransicion,
+                                 this.jInternalFrameMatrizCosto, this.jTablaCosto);
         } catch (IOException ex) {
             Logger.getLogger(PanelMDI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_AbrirActionPerformed
 
     private void NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoActionPerformed
-        control.NuevoArchivo(jInternalFrameMatrizTransicion,jTablaTransicion,jInternalFrameMatrizCosto,jTablaCosto);
+        control.NuevoArchivo(jInternalFrameMatrizTransicion, jTablaTransicion, jInternalFrameMatrizCosto, jTablaCosto);
         jInternalFrameMatrizCosto.setVisible(true);
     }//GEN-LAST:event_NuevoActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        control.guardarMatrizTransicion((DefaultTableModel) this.jTablaTransicion.getModel()
-                ,(DefaultTableModel) this.jTablaCosto.getModel());     
-        
+        control.guardarArchivo((DefaultTableModel) this.jTablaTransicion.getModel()
+                                       ,(DefaultTableModel) this.jTablaCosto.getModel());
+
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void jTablaTransicionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablaTransicionKeyReleased
-        control.Actualizar((DefaultTableModel) this.jTablaTransicion.getModel());
+        control.ActualizarMT((DefaultTableModel) this.jTablaTransicion.getModel());
     }//GEN-LAST:event_jTablaTransicionKeyReleased
 
     private void jTablaTransicion1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablaTransicion1KeyReleased
@@ -438,7 +436,7 @@ public class PanelMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTablaTransicion3KeyReleased
 
     /**
-    
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -506,5 +504,4 @@ public class PanelMDI extends javax.swing.JFrame {
     public javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
-
 }

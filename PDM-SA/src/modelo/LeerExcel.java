@@ -65,22 +65,23 @@ public class LeerExcel {
                 while (iterator.hasNext()) {
                     HSSFCell hssfCell = (HSSFCell) iterator.next();
                     fila.add(Double.parseDouble(hssfCell.toString()));
-                   
+
                 }
-                System.out.println(fila.size()+" --- ");
-                if(bandera== false){
-                        MT = new DefaultTableModel(cabeceraModelo(fila.size()), 0);
-                        bandera= true;
+                System.out.println(fila.size() + " --- ");
+                if (bandera == false) {
+                    MT = new DefaultTableModel(cabeceraModelo(fila.size()), 0);
+                    bandera = true;
                 }
-                
+
                 MT.addRow(fila);
             }
         }
-        for(int i = 0 ; i< MT.getRowCount();i++){
-        MT.setValueAt((char) ('A' + i ),i,0);
+        for (int i = 0; i < MT.getRowCount(); i++) {
+            MT.setValueAt((char) ('A' + i), i, 0);
         }
         return MT;
     }
+
     public DefaultTableModel LeerMC() {
         DefaultTableModel MC = new DefaultTableModel();
 
@@ -98,22 +99,23 @@ public class LeerExcel {
                 while (iterator.hasNext()) {
                     HSSFCell hssfCell = (HSSFCell) iterator.next();
                     fila.add(Double.parseDouble(hssfCell.toString()));
-                   
+
                 }
-                System.out.println(fila.size()+" --- ");
-                if(bandera== false){
-                        MC = new DefaultTableModel(cabeceraModeloCosto(fila.size()), 0);
-                        bandera= true;
+              
+                if (bandera == false) {
+                    MC = new DefaultTableModel(cabeceraModeloCosto(fila.size()), 0);
+                    bandera = true;
                 }
-                
+
                 MC.addRow(fila);
             }
         }
-        for(int i = 0 ; i< MC.getRowCount();i++){
-        MC.setValueAt((char) ('A' + i ),i,0);
+        for (int i = 0; i < MC.getRowCount(); i++) {
+            MC.setValueAt((char) ('A' + i), i, 0);
         }
         return MC;
     }
+
     public Object[] cabeceraModelo(int columnas) {
         Object cabecera[] = new Object[columnas];
         cabecera[0] = "Estados";
@@ -122,11 +124,12 @@ public class LeerExcel {
         }
         return cabecera;
     }
-     public Object[] cabeceraModeloCosto(int columnas) {
+
+    public Object[] cabeceraModeloCosto(int columnas) {
         Object cabecera[] = new Object[columnas];
         cabecera[0] = "Decision";
         for (int i = 1; i < cabecera.length; i++) {
-            cabecera[i] =  i ;
+            cabecera[i] = i;
         }
         return cabecera;
     }

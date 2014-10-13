@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class MatrizTransicion extends Matriz{
 
     public MatrizTransicion() {
+        super();
     }
 
     public MatrizTransicion(DefaultTableModel modelo) {
